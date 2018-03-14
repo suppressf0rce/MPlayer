@@ -1,7 +1,9 @@
-package com.binarylab.mplayer;
+package com.binarylab.mplayer.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.binarylab.mplayer.R;
 
 public class MainActivity extends AppCompatActivity {
 
