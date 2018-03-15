@@ -6,15 +6,22 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.binarylab.mplayer.R;
 import com.binarylab.mplayer.fragments.AudioFragment;
 
 public class MainActivity extends AppCompatActivity {
+
+    private Toolbar toolbar;
 
     private DrawerLayout drawerLayout;
     @Override
@@ -23,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Setting default toolbar to be our toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //Setting toolbar menu button
@@ -80,4 +87,22 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Filling the default toolbar with items from "/res/menu/menu_toolbar.xml"
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_toolbar, menu);
+
+        //HACK FOR FIXING THE DAMNED SEARCH ICONS
+        SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        MenuItem searchViewMenuItem = menu.findItem(R.id.action_search);
+        SearchView mSearchView = (SearchView) MenuItemCompat.getActionView(searchViewMenuItem);
+        int searchImgId = android.support.v7.appcompat.R.id.search_button; // I used the explicit layout ID of searchview's ImageView
+        int closeImgId = android.support.v7.appcompat.R.id.search_close_btn;
+        ImageView v = mSearchView.findViewById(searchImgId);
+        v.setImageResource(R.drawable.ic_search);
+        v = mSearchView.findViewById(closeImgId);
+        v.setImageResource(R.drawable.ic_close);
+        return true;
+    }
 }

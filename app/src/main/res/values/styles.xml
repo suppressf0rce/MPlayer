@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/colorOrange</item>
 
 
+        <item name="android:editTextColor">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+
         <!-- Background Color -->
         <item name="android:windowBackground">@color/colorGray</item>
 
@@ -17,6 +20,25 @@
         <!-- Menu Icon -->
         <item name="homeAsUpIndicator">@drawable/ic_menu</item>
 
+        <!-- Overflow Menu style -->
+        <item name="android:actionOverflowButtonStyle">@style/AppTheme.MoreButtonStyle</item>
+        <item name="android:itemTextAppearance">@style/AppTheme.PrimaryColor</item>
+
+        <item name="android:searchIcon">@drawable/ic_close</item>
+        <item name="android:closeIcon">@drawable/ic_close</item>
+
+    </style>
+
+    <style name="AppTheme.PrimaryColor">
+        <item name="android:textColor">@color/colorOrange</item>
+    </style>
+
+    <style name="AppTheme.OverflowMenu" parent="Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@color/colorGray</item>
+    </style>
+
+    <style name="AppTheme.MoreButtonStyle" parent="@style/Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/colorWhite</item>
     </style>
 
     <!-- Loading AppTheme -->
@@ -37,5 +59,4 @@
         <item name="android:progressTint">@color/colorWhite</item>
         <item name="android:progressBackgroundTint">@color/colorGrayDark</item>
     </style>
-
 </resources>
