@@ -11,16 +11,11 @@ import com.binarylab.mplayer.activities.MainActivity;
  */
 public class LoadingThread implements Runnable {
 
-    private LoadingActivity loadingActivity;
-
-    public LoadingThread(LoadingActivity activity) {
-        this.loadingActivity = activity;
-    }
 
     @Override
     public void run() {
         for (int i = 0; i <= 100; i++) {
-            loadingActivity.setProgressValue(i);
+            LoadingActivity.getInstance().setProgressValue(i);
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {
@@ -30,8 +25,8 @@ public class LoadingThread implements Runnable {
         }
 
         //Switching to main activity and killing the loading activity
-        Intent changeIntent = new Intent(loadingActivity, MainActivity.class);
-        loadingActivity.startActivity(changeIntent);
-        loadingActivity.finish();
+        Intent changeIntent = new Intent(LoadingActivity.getInstance(), MainActivity.class);
+        LoadingActivity.getInstance().startActivity(changeIntent);
+        LoadingActivity.getInstance().finish();
     }
 }

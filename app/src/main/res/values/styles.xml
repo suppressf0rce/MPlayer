@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Default Theme Colors. -->
         <item name="colorPrimary">@color/colorOrange</item>
         <item name="colorPrimaryDark">@color/colorGrayDark</item>
@@ -13,6 +13,9 @@
 
         <!-- Text Color -->
         <item name="android:textColor">@color/colorWhite</item>
+
+        <!-- Menu Icon -->
+        <item name="homeAsUpIndicator">@drawable/ic_menu</item>
 
     </style>
 
